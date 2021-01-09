@@ -46,7 +46,7 @@ function runEnter() {
     d3.event.preventDefault();
     
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var inputElement = d3.select("#input");
   
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
@@ -55,8 +55,11 @@ function runEnter() {
     console.log(inputValue);
     
     // Filter data to datetime equal to input value
-    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
-    
+    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue ||
+                                                    sighting.city === inputValue ||
+                                                    sighting.state === inputValue ||
+                                                    sighting.country === inputValue ||
+                                                    sighting.shape === inputValue);
     // Log filter data 
     console.log(filteredData);
 
